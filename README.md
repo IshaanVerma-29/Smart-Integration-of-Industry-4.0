@@ -140,9 +140,9 @@ The near-total linear independence among sensor, production, quality, and networ
 
 ## Machine Learning Model Evaluated
 
-| Model | Accuracy |
-|---|---|
-| Random Forest | 100.00% |
+| Model | Accuracy (Test Set) | 5-Fold CV Accuracy |
+|---|---|---|
+| Random Forest | 99.995% (19,999 / 20,000) | 99.991% ± 0.004% |
 
 ---
 
@@ -150,18 +150,20 @@ The near-total linear independence among sensor, production, quality, and networ
 
 ### Random Forest Classifier
 
-- Accuracy: 100.00%
-- Weighted F1 Score: 1.00
-- Macro F1 Score: 1.00
-- Superior non-linear multi-class decision boundary capture across all efficiency regimes
-- High classification accuracy on the minority High-efficiency class as well as Medium and Low classes
-- High interpretability, robust ensemble voting, and high reliability for production deployment
+- **Test Accuracy**: 99.995% (rounds to 100.00% at two decimal places)
+- **5-Fold Cross-Validation Accuracy**: 99.991% ± 0.004%
+- **Weighted F1 Score**: 0.99995
+- **Macro F1 Score**: 0.99968
+- **Decision Boundary Alignment**: The ground-truth operational efficiency categories in the manufacturing simulation follow axis-aligned threshold boundaries governed predominantly by `Production_Speed` and `Error_Rate` (>96% cumulative feature importance). Decision tree ensembles natively split along orthogonal axes, allowing Random Forest to resolve the operational regimes without linear boundary distortion.
+- **Data Validation & Integrity**: Zero data leakage, zero duplicate records, and rigorous stratified train/test partitioning (80,000 train / 20,000 test).
+- **High Reliability**: Outstanding precision, recall, and F1 across both dominant (`Low`) and minority (`High`, `Medium`) classes.
 
 | Class | Precision | Recall | F1 | Support |
 |---|---|---|---|---|
-| High | 1.00 | 1.00 | 1.00 | 597 |
-| Medium | 1.00 | 1.00 | 1.00 | 3,838 |
-| Low | 1.00 | 1.00 | 1.00 | 15,565 |
+| High | 1.0000 | 0.9983 | 0.9992 | 597 |
+| Medium | 0.9997 | 1.0000 | 0.9999 | 3,838 |
+| Low | 1.0000 | 1.0000 | 1.0000 | 15,565 |
+| **Weighted Avg** | **0.9999** | **0.9999** | **0.9999** | **20,000** |
 
 ---
 

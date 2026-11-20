@@ -32,8 +32,6 @@ st.set_page_config(
 
 DATA_PATH = Path(__file__).parent / "Manufacturing_Cleaned_Dataset.csv"
 MODEL_PATH = Path(__file__).parent / "manufacturing_random_forest_model.pkl"
-if not MODEL_PATH.exists():
-    MODEL_PATH = Path(__file__).parent / "manufacturing_logistic_model.pkl"
 
 # ════════════════════════════════════════════════════════════════════
 #  GLOBAL THEME
