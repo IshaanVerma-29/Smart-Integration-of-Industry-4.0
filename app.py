@@ -251,7 +251,7 @@ NUMERIC_COLS = [
 # ════════════════════════════════════════════════════════════════════
 with st.sidebar:
     st.markdown("## 🏭 Smart Industry 4.0")
-    st.caption("Smart Integration of Industry 4.0 Technologies")
+    st.caption("Ishaan Verma (05319052023)  \nKirti Yadav (02919052023)")
     page = st.radio(
         "Navigate",
         ["📊 Dashboard", "🔧 Machine Health", "⚙️ Production", "🛡️ Quality",
