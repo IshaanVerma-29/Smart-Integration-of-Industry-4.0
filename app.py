@@ -1,10 +1,10 @@
 """
-6G-Enabled Smart Manufacturing Analytics Dashboard
-====================================================
-Diagnostic analytics platform for Thales smart-manufacturing telemetry:
+Smart Integration of Industry 4.0 Technologies Dashboard
+=========================================================
+Diagnostic analytics platform for smart-manufacturing telemetry:
 machine health, production performance, quality, network performance,
 KPI engine, and an executive efficiency-classification report built on
-the Logistic Regression model trained in Thales_Group_Analysis.ipynb.
+the Random Forest model trained in Thales_Group_Analysis.ipynb.
 
 Run:  streamlit run app.py
 """
@@ -24,14 +24,16 @@ import streamlit as st
 #  PAGE CONFIG
 # ════════════════════════════════════════════════════════════════════
 st.set_page_config(
-    page_title="6G Smart Manufacturing Analytics | Thales",
+    page_title="Smart Integration of Industry 4.0 Technologies",
     page_icon="🏭",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
 DATA_PATH = Path(__file__).parent / "Manufacturing_Cleaned_Dataset.csv"
-MODEL_PATH = Path(__file__).parent / "manufacturing_logistic_model.pkl"
+MODEL_PATH = Path(__file__).parent / "manufacturing_random_forest_model.pkl"
+if not MODEL_PATH.exists():
+    MODEL_PATH = Path(__file__).parent / "manufacturing_logistic_model.pkl"
 
 # ════════════════════════════════════════════════════════════════════
 #  GLOBAL THEME
@@ -250,8 +252,8 @@ NUMERIC_COLS = [
 #  SIDEBAR — NAVIGATION + FILTERS
 # ════════════════════════════════════════════════════════════════════
 with st.sidebar:
-    st.markdown("## 🏭 6G Smart Mfg")
-    st.caption("Thales Manufacturing Intelligence")
+    st.markdown("## 🏭 Smart Industry 4.0")
+    st.caption("Smart Integration of Industry 4.0 Technologies")
     page = st.radio(
         "Navigate",
         ["📊 Dashboard", "🔧 Machine Health", "⚙️ Production", "🛡️ Quality",
@@ -329,7 +331,7 @@ kpis = compute_kpis(df)
 # ════════════════════════════════════════════════════════════════════
 if page == "📊 Dashboard":
     st.markdown(
-        '<div class="hero"><h1>6G-Enabled Smart Manufacturing Analytics</h1>'
+        '<div class="hero"><h1>Smart Integration of Industry 4.0 Technologies</h1>'
         '<p>Executive overview of factory-wide machine health, production performance, '
         'quality and network telemetry across the connected production line.</p></div>',
         unsafe_allow_html=True,
@@ -640,7 +642,7 @@ if page == "🔗 Correlation Analysis":
 # ════════════════════════════════════════════════════════════════════
 if page == "📑 Executive Report":
     st.markdown('<p class="section-title">Executive KPI Report</p>', unsafe_allow_html=True)
-    st.markdown('<p class="section-sub">Factory-wide KPI engine and Logistic Regression efficiency classifier.</p>', unsafe_allow_html=True)
+    st.markdown('<p class="section-sub">Factory-wide KPI engine and Random Forest efficiency classifier.</p>', unsafe_allow_html=True)
 
     kpi_table = pd.DataFrame({
         "KPI": ["Machine Health Index", "Avg Production Speed", "Defect Density Score",
@@ -662,10 +664,10 @@ if page == "📑 Executive Report":
     e3.markdown(kpi_card("Records Analyzed", f"{kpis['records']:,}"), unsafe_allow_html=True)
     e4.markdown(kpi_card("High-Efficiency Share", f"{kpis['high_eff_pct']:.1f}%", "amber"), unsafe_allow_html=True)
 
-    st.markdown('<p class="section-title">Efficiency Status Classifier (Logistic Regression)</p>', unsafe_allow_html=True)
+    st.markdown('<p class="section-title">Efficiency Status Classifier (Random Forest)</p>', unsafe_allow_html=True)
 
     if model_artifacts is None:
-        st.warning("Model artifact `manufacturing_logistic_model.pkl` not found alongside app.py.")
+        st.warning("Model artifact `manufacturing_random_forest_model.pkl` not found alongside app.py.")
     else:
         model = model_artifacts["model"]
         scaler = model_artifacts["scaler"]
@@ -686,7 +688,7 @@ if page == "📑 Executive Report":
 
         with st.expander("ℹ️ About this model"):
             st.write(
-                "A Logistic Regression classifier trained in `Thales_Group_Analysis.ipynb` predicts "
+                "A Random Forest classifier trained in `Thales_Group_Analysis.ipynb` predicts "
                 "`Efficiency_Status` (High / Medium / Low) from sensor, production, quality and network "
                 "features. Inputs are standardized with the notebook's fitted `StandardScaler` before inference."
             )

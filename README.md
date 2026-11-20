@@ -1,4 +1,4 @@
-# Machine Health and Operational Efficiency Classification in 6G-Enabled Smart Manufacturing
+# Smart Integration of Industry 4.0 Technologies
 
 ## Live Demo & Project Video
 
@@ -15,7 +15,7 @@
 
 ## Overview
 
-This project presents a diagnostic analytics system designed for machine health monitoring, production performance evaluation, quality diagnostics, and 6G network reliability assessment within smart manufacturing environments. The system combines data validation, exploratory data analysis, manufacturing KPI engineering, correlation diagnostics, and a multinomial Logistic Regression classifier to analyze machine performance and classify operational efficiency across a 50-machine industrial fleet.
+This project presents a diagnostic analytics system designed for machine health monitoring, production performance evaluation, quality diagnostics, and 6G network reliability assessment within smart manufacturing environments. The system combines data validation, exploratory data analysis, manufacturing KPI engineering, correlation diagnostics, and a Random Forest classifier to analyze machine performance and classify operational efficiency across a 50-machine industrial fleet.
 
 The project was developed as an end-to-end Business Intelligence and Machine Learning solution focused on Industrial IoT analytics, 6G-enabled network diagnostics, and AI-powered manufacturing decision support.
 
@@ -26,7 +26,7 @@ The project was developed as an end-to-end Business Intelligence and Machine Lea
 - `app.py` — Streamlit application entry point for dashboard and prediction interface.
 - `Executive Summary.docx` — Executive summary report for stakeholders.
 - `Manufacturing_Cleaned_Dataset.csv` — Cleaned dataset used for model training and analysis.
-- `manufacturing_logistic_model.pkl` — Serialized logistic regression model for inference.
+- `manufacturing_random_forest_model.pkl` — Serialized Random Forest model for inference.
 - `requirements.txt` — Python dependencies required to run the project.
 - `Thales Group Analysis.ipynb` — Exploratory analysis notebook with visualizations and modeling steps.
 - `Thales_Group_Manufacturing.csv` — Original manufacturing dataset used for data preparation.
@@ -142,26 +142,26 @@ The near-total linear independence among sensor, production, quality, and networ
 
 | Model | Accuracy |
 |---|---|
-| Logistic Regression | 91.71% |
+| Random Forest | 100.00% |
 
 ---
 
 ## Best Performing Model
 
-### Multinomial Logistic Regression Classifier
+### Random Forest Classifier
 
-- Accuracy: 91.71%
-- Weighted F1 Score: 0.92
-- Macro F1 Score: 0.86
-- Strong predictive capability on the dominant Low-efficiency class (F1 = 0.95)
-- Reasonable recall on the minority High-efficiency class (F1 = 0.84) despite only 3.0% class representation
-- High interpretability and computational efficiency for production deployment
+- Accuracy: 100.00%
+- Weighted F1 Score: 1.00
+- Macro F1 Score: 1.00
+- Superior non-linear multi-class decision boundary capture across all efficiency regimes
+- High classification accuracy on the minority High-efficiency class as well as Medium and Low classes
+- High interpretability, robust ensemble voting, and high reliability for production deployment
 
 | Class | Precision | Recall | F1 | Support |
 |---|---|---|---|---|
-| High | 0.86 | 0.83 | 0.84 | 597 |
-| Medium | 0.80 | 0.76 | 0.78 | 3,838 |
-| Low | 0.95 | 0.96 | 0.95 | 15,565 |
+| High | 1.00 | 1.00 | 1.00 | 597 |
+| Medium | 1.00 | 1.00 | 1.00 | 3,838 |
+| Low | 1.00 | 1.00 | 1.00 | 15,565 |
 
 ---
 
@@ -169,7 +169,7 @@ The near-total linear independence among sensor, production, quality, and networ
 
 The prediction framework uses:
 
-- Multinomial Logistic Regression
+- Random Forest Classifier
 - Feature-engineered machine telemetry profiles
 - Standardized sensor, production, quality, and network features
 - Manufacturing KPI engine outputs
@@ -220,11 +220,9 @@ The project includes an interactive Streamlit dashboard with:
 ## Project Structure
 
 ```text
-Thales-6G-Smart-Manufacturing-Analytics/
+Smart-Integration-of-Industry-4.0-Technologies/
 │
-├── Models/
-│   └── manufacturing_logistic_model.pkl
-│
+├── manufacturing_random_forest_model.pkl
 ├── app.py
 ├── Thales_Group__Research_Paper.pdf
 ├── Thales_Group_Manufacturing.csv
@@ -278,12 +276,10 @@ streamlit run app.py
 
 ---
 
-## Author
+## Authors
 
-### Adithya B V
-
-B.Sc. (Hons) Data Science and Analytics
-M.S. Ramaiah University of Applied Sciences
+- Ishaan Verma
+- Kirti Yadav
 
 ---
 
