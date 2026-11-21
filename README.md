@@ -217,9 +217,8 @@ Smart-Integration-of-Industry-4.0-Technologies/
 │
 ├── manufacturing_random_forest_model.pkl
 ├── app.py
-├── Thales_Group__Research_Paper.pdf
-├── Thales_Group_Manufacturing.csv
-├── Thales_Group_Analysis.ipynb
+├── Industry4.0.csv
+├── Industry4.0.ipynb
 ├── Manufacturing_Cleaned_Dataset.csv
 ├── Executive_Summary.docx
 ├── README.md
