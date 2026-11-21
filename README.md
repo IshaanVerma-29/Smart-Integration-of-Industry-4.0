@@ -1,9 +1,7 @@
 # Smart Integration of Industry 4.0 Technologies
 
-## Live Demo & Project Video
-
 ### Streamlit Dashboard
-🔗 https://6g-smart-manufacturing-analytics.streamlit.app/
+🔗 https://smart-industry-4-0.streamlit.app/
 
 ---
 
@@ -22,9 +20,8 @@ The project was developed as an end-to-end Business Intelligence and Machine Lea
 - `Manufacturing_Cleaned_Dataset.csv` — Cleaned dataset used for model training and analysis.
 - `manufacturing_random_forest_model.pkl` — Serialized Random Forest model for inference.
 - `requirements.txt` — Python dependencies required to run the project.
-- `Thales Group Analysis.ipynb` — Exploratory analysis notebook with visualizations and modeling steps.
-- `Thales_Group_Manufacturing.csv` — Original manufacturing dataset used for data preparation.
-- `Thales_Group__Research_Paper.pdf` — Research document covering methodology and results.
+- `Ishaanindustry4.0.ipynb` — Exploratory analysis notebook with visualizations and modeling steps.
+- `Ishaanindustry4.0.csv` — Original manufacturing dataset used for data preparation.
 
 ---
 
@@ -43,7 +40,7 @@ The project was developed as an end-to-end Business Intelligence and Machine Lea
 
 ## Dataset Information
 
-A 6G-enabled smart manufacturing telemetry dataset containing 100,000 operational records across 50 machines was used to capture:
+A smart manufacturing telemetry dataset containing operational records across many machines was used to capture:
 
 - Machine sensor behaviour (temperature, vibration, power consumption)
 - 6G network performance (latency, packet loss)
